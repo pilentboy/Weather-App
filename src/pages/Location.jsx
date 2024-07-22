@@ -48,6 +48,7 @@ const Location = () => {
           
               <input spellCheck type='text' value={location} 
               onChange={(prev) => {
+                // disable changing value while searching is in process
                 if(!searching) setLocation(prev.target.value) 
               }}
               className='h-full w-3/4 p-2 
