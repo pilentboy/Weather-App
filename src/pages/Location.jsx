@@ -46,7 +46,7 @@ const Location = () => {
            <form action='#' onSubmit={handleSearchLocation}>
             <div className='relative main-input w-72 h-10  flex justify-between items-center  bg-gray-800 md:w-96 md:h-16'>
           
-              <input type='text' value={location} 
+              <input spellCheck type='text' value={location} 
               onChange={(prev) => {
                 if(!searching) setLocation(prev.target.value) 
               }}
