@@ -1,6 +1,6 @@
 import Button from '../components/button'
 import { FaArrowRight } from "react-icons/fa";
-import { useState, useRef} from "react";
+import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
