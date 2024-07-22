@@ -6,13 +6,14 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-const Location = () => {
+const Home = () => {
 
     const apiKey='4591cff101074e3dcffaa9f770b4b812'
     const URL='https://api.openweathermap.org/data/2.5/weather?'
 
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
+
     const navigate=useNavigate()
 
     const handleSearchLocation=async e=>{ 
@@ -68,4 +69,4 @@ const Location = () => {
     );
 }
 
-export default Location;
+export default Home;
