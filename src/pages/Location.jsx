@@ -44,7 +44,7 @@ const Location = () => {
             />
 
            <form action='#' onSubmit={handleSearchLocation}>
-            <div className='relative main-input w-72 h-10  flex justify-between items-center  bg-gray-800 md:w-96 md:h-16'>
+            <div className={`relative main-input w-72 h-10  flex justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
           
               <input spellCheck type='text' value={location} 
               onChange={(prev) => {
@@ -56,7 +56,7 @@ const Location = () => {
               placeholder='Enter Location Name'
               />
   
-              <Button icon={<FaArrowRight/>} />
+              <Button icon={<FaArrowRight className='hover:scale-125 duration-200 '/>} />
             </div>
         
   

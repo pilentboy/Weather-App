@@ -1,5 +1,6 @@
 import Container from './components/container'
 import './index.css'
+import 'animate.css';
 import Location from './pages/Location'
 import Result from './pages/Result'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
