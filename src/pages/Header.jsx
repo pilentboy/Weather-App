@@ -33,7 +33,7 @@ const Header = () => {
                 }}
             />
 
-            <button className="ms-3 cursor-pointer text-5xl text-gray-400 ">
+            <button className="ms-3 cursor-pointer text-5xl text-gray-400 hover:scale-110 duration-200">
                 <MdHistoryEdu/>
             </button>
        
