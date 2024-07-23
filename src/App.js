@@ -19,14 +19,14 @@ function App() {
 
                 <Route path='/' element={<Nav/>}>
                   <Route  index element={<Home/>} />
-                  
+                    <Route path='result' element={<ProtectedRoute/>} >
+                    <Route index element={<Result/>} />
+                  </Route>
                 </Route>
 
-                {/* <Route path='/result' element={<ProtectedRoute/>} >
-                  <Route index element={<Result/>} />
-                </Route>
+             
 
-                <Route path='*' element={<Home/>} /> */}
+                <Route path='*' element={<Home/>} /> 
 
             </Routes>
           </BrowserRouter>
