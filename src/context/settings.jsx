@@ -4,10 +4,26 @@ const Settings=createContext()
 
 const SettingsProvider=({children})=>{
 
-    const [language,setLanguage]=useState('en')
+
+        
+    const languages=[
+        { value: 'en', label: 'EN'},
+        { value: 'fa', label: 'FA'}
+    ]
+
+    const [selectedLan,setSelectedLan]=useState(localStorage.getItem('language')?.valueOf() || 0)
+        
+
+
+    const handleChangeLan=v => {
+        const lanIndex=languages.findIndex(lan => lan.value === v)
+        window.localStorage.setItem('language',lanIndex)
+        setSelectedLan(lanIndex)
+    }
+    
 
     return (
-        <Settings.Provider value={{language}}>
+        <Settings.Provider value={{languages,selectedLan,handleChangeLan}}>
             {children}
         </Settings.Provider>
     )
