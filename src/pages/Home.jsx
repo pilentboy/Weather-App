@@ -69,7 +69,9 @@ const Home = () => {
             <div className={`relative main-input w-72 h-12   ${selectedLan == 0 ? 'flex flex-row' : 'flex flex-row-reverse'} justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
 
                 {/* search location input*/}
-              <input spellCheck type='text' value={location} title='search input'
+              <input
+              spellCheck type='text' 
+              value={location} title='search input'
               autoFocus
               onFocus={()=> setLocationFocus(true)}
               onBlur={()=> setLocationFocus(false)}
