@@ -16,6 +16,8 @@ const Home = () => {
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
 
+ 
+
     const navigate=useNavigate()
 
     const handleSearchLocation=async e=>{ 
@@ -34,9 +36,7 @@ const Home = () => {
        
     }
 
-    useEffect(()=>{
-        console.log(locationFocus)
-    },[locationFocus])
+   
     return (
       
         <div className='container h-screen   flex justify-center items-center relative '>
@@ -54,6 +54,12 @@ const Home = () => {
 
             
             <SlideShow />
+
+         
+            
+          
+        
+
 
            <form action='#' onSubmit={handleSearchLocation}>
             <div className={`relative main-input w-72 h-10  flex justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
