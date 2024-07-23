@@ -11,7 +11,7 @@ const Nav = () => {
    
     return (
         <>
-        <nav className="w-screen container fixed top-0 left-[50%] translate-x-[-50%] px-2 my-4  flex bg-transparent z-[999]">
+        <nav className="w-screen container fixed top-0 left-[50%] translate-x-[-50%] px-4  my-4  flex bg-transparent z-[999] md:px-2">
 
          <Select 
             onChange={e => handleChangeLan(e.value)}
