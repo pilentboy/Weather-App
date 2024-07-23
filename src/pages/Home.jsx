@@ -1,7 +1,7 @@
 import Button from '../components/button'
 import SlideShow from '../components/slideShow';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
-import { useEffect,useContext, useState} from "react";
+import { useEffect,useContext, useState, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,13 +17,14 @@ const Home = () => {
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
     const {selectedLan}=useContext(Settings)
- 
-
+    const searchInput=useRef(null)
     const navigate=useNavigate()
 
+    
     const handleSearchLocation=async e=>{ 
         e.preventDefault()
         setSarching(true)
+        searchInput.current.blur()
         toast.info(selectedLan == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
@@ -37,10 +38,8 @@ const Home = () => {
        
     }
 
-    useEffect(()=>{
-        console.log(selectedLan)
-    },[])
-   
+
+
     return (
       
         <div className='container h-screen   flex justify-center items-center relative '>
@@ -70,6 +69,7 @@ const Home = () => {
 
                 {/* search location input*/}
               <input
+              ref={searchInput}
               spellCheck type='text' 
               value={location} title='search input'
               autoFocus
