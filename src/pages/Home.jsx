@@ -1,4 +1,5 @@
 import Button from '../components/button'
+import SlideShow from '../components/slideShow';
 import { FaArrowRight } from "react-icons/fa";
 import { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +39,7 @@ const Home = () => {
     },[locationFocus])
     return (
       
-        <div className='container h-screen  flex justify-center items-center relative '>
+        <div className='container h-screen   flex justify-center items-center relative '>
 
             <img 
             src={process.env.PUBLIC_URL + '/assets/image/homeBG.webp'} 
@@ -50,6 +51,9 @@ const Home = () => {
                 rtl={false}
                 theme="light"    
             />
+
+            
+            <SlideShow />
 
            <form action='#' onSubmit={handleSearchLocation}>
             <div className={`relative main-input w-72 h-10  flex justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
