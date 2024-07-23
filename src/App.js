@@ -5,7 +5,7 @@ import ProtectedRoute from './components/protectedRoute';
 import Home from './pages/Home'
 import Result from './pages/Result'
 import SettingsProvider from '../src/context/settings'
-import Nav from './pages/Nav';
+import Header from './pages/Header';
 import { BrowserRouter,Routes,Route, Navigate } from 'react-router-dom'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <SettingsProvider>
 
             <Routes>
-                  <Route path='/' element={<Nav/>}>
+                  <Route path='/' element={<Header/>}>
                     <Route  index element={<Home/>} />
                       <Route path='result' element={<ProtectedRoute/>} >
                       <Route index element={<Result/>} />

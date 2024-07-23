@@ -22,7 +22,7 @@ const Home = () => {
 
     
     const handleSearchLocation=async e=>{ 
-        e.preventDefault()
+        e?.preventDefault()
         setSarching(true)
         searchInput.current.blur()
         toast.info(selectedLan == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
