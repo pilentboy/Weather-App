@@ -3,9 +3,8 @@ import Select from 'react-select'
 import { useContext, useEffect, useState } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
-import { CiLocationOn } from "react-icons/ci";
-
 import CloseButton from "../components/closeButton";
+import SearchModalItem from "../components/searchModalItem";
 
 
 const Header = () => {
@@ -57,10 +56,16 @@ const Header = () => {
             >
                 {/* top */}
                 <div 
-             
                 className="flex items-center w-full border-b border-gray-400 p-1">
                     <CloseButton action={setHistoryModal}/>
                 </div>
+
+                {/* locations */}
+                <div className=" w-full h-full py-2 flex flex-col items-center overflow-y-auto">
+                  <SearchModalItem/>
+              
+                </div>
+
 
             </div>
 
