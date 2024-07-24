@@ -4,7 +4,6 @@ import { Settings } from "../context/settings";
 import { useContext } from "react";
 
 const WeatherCard = ({locationInfo,localTime}) => {
-    console.log(locationInfo)
     const {selectedLanIndex}=useContext(Settings)
 
     return (
