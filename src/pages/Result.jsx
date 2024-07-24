@@ -10,13 +10,9 @@ const Result = () => {
     const [localTime,setLocalTime]=useState();
 
     async function setLocalTimeLocation(){
-        console.log('loading time...')
         const res=await  getLocalTimeLocation(location.state.coord)
-        console.log(res,'resss')
         setLocalTime(res)
     }
-
-    
 
     useEffect(()=>{
        
