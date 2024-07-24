@@ -2,7 +2,7 @@
 
 const WeatherCard = ({locationInfo,localTime}) => {
     console.log(locationInfo)
-    const descriptionIcon=`https://openweathermap.org/img/wn/${locationInfo.weather[0].icon}.png`
+    
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
