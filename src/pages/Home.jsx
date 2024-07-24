@@ -16,7 +16,7 @@ const Home = () => {
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
-    const {selectedLan}=useContext(Settings)
+    const {selectedLanIndex}=useContext(Settings)
     const searchInput=useRef(null)
     const navigate=useNavigate()
 
@@ -25,13 +25,13 @@ const Home = () => {
         e?.preventDefault()
         setSarching(true)
         searchInput.current.blur()
-        toast.info(selectedLan == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
+        toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
             navigate("/result", { state:res.data });
         } catch (error) {
             toast.dismiss('isSearching')
-            toast.error(selectedLan == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
+            toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
         }
         setSarching(false)
         setLocation('')
@@ -61,7 +61,7 @@ const Home = () => {
             <img src={process.env.PUBLIC_URL + '/assets/image/mobileBG2.png'} className={` w-96 h-42  duration-500  absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] block md:hidden blur-[${!locationFocus ? '0px' : '2px'}]`} />
 
            <form action='#' onSubmit={handleSearchLocation}>
-            <div className={`relative main-input w-72 h-12 z-[500]  ${selectedLan == 0 ? 'flex flex-row' : 'flex flex-row-reverse'} justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
+            <div className={`relative main-input w-72 h-12 z-[500]  ${selectedLanIndex == 0 ? 'flex flex-row' : 'flex flex-row-reverse'} justify-between items-center animate__animated animate__infinite ${searching && 'animate__pulse'} bg-gray-800 md:w-96 md:h-16`}>
 
                 {/* search location input*/}
               <input
@@ -76,12 +76,12 @@ const Home = () => {
                 if(!searching) setLocation(prev.target.value) 
               }}
               className={`h-full w-3/4 p-2 
-              bg-transparent placeholder:text-gray-400 text-gray-300 outline-none border-none ${selectedLan == 0 ?'text-start' : 'text-end'}`}
-              placeholder={selectedLan == 0 ? 'Enter Location Name' : 'نام شهر را وارد نمایید'}
+              bg-transparent placeholder:text-gray-400 text-gray-300 outline-none border-none ${selectedLanIndex == 0 ?'text-start' : 'text-end'}`}
+              placeholder={selectedLanIndex == 0 ? 'Enter Location Name' : 'نام شهر را وارد نمایید'}
 
               />
   
-              <Button icon={selectedLan == 0 ? <FaArrowRight className='hover:scale-125 duration-200 '/> : <FaArrowLeft className='hover:scale-125 duration-200 '/>} title='Search' ariaLabel='Search Button' />
+              <Button icon={selectedLanIndex == 0 ? <FaArrowRight className='hover:scale-125 duration-200 '/> : <FaArrowLeft className='hover:scale-125 duration-200 '/>} title='Search' ariaLabel='Search Button' />
             </div>
         
   

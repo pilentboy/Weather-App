@@ -7,7 +7,7 @@ import { MdHistoryEdu } from "react-icons/md";
 
 const Header = () => {
 
-    const {languages,selectedLan,handleChangeLan}=useContext(Settings)
+    const {languages,selectedLanIndex,handleChangeLan}=useContext(Settings)
     const [histoyDisplay,setHistoryDisplay]=useState(false)
    
     return (
@@ -17,7 +17,7 @@ const Header = () => {
          <Select 
             onChange={e => handleChangeLan(e.value)}
              options={languages} 
-                defaultValue={languages[selectedLan]}
+                defaultValue={languages[selectedLanIndex]}
                 styles={{
                     control: (provided) => ({
                         ...provided,

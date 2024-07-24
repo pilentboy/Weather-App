@@ -11,19 +11,19 @@ const SettingsProvider=({children})=>{
         { value: 'fa', label: 'FA'}
     ]
 
-    const [selectedLan,setSelectedLan]=useState(localStorage.getItem('language')?.valueOf() || 0)
+    const [selectedLanIndex,setSelectedLanIndex]=useState(localStorage.getItem('language')?.valueOf() || 0)
         
 
 
     const handleChangeLan=v => {
         const lanIndex=languages.findIndex(lan => lan.value === v)
         window.localStorage.setItem('language',lanIndex)
-        setSelectedLan(lanIndex)
+        setSelectedLanIndex(lanIndex)
     }
     
 
     return (
-        <Settings.Provider value={{languages,selectedLan,handleChangeLan}}>
+        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan}}>
             {children}
         </Settings.Provider>
     )
