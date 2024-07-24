@@ -2,7 +2,7 @@
 
 const WeatherCard = ({locationInfo,localTime}) => {
     console.log(locationInfo)
-    
+
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
@@ -37,7 +37,20 @@ const WeatherCard = ({locationInfo,localTime}) => {
             {/* details */}
             <div className="flex justify-between items-center">
 
+                <div>
 
+                </div>
+
+                <div className="flex text-white">
+                    <span className="text-2xl">
+                        {locationInfo.main.temp}
+                    </span>
+                    <span className="text-4xl">
+                    °
+                    </span>
+                </div>
+
+                
          
             </div>
 
