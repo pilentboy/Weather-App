@@ -22,7 +22,7 @@ const LocationHistoryItem = ({location}) => {
     const handleSearchLocationFromHistory=async ()=>{
       
         try {
-            const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
+            const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric&lang=${selectedLanIndex == 0 ? 'en' : 'fa'}`)
             navigate("/result", { state:res.data });
             setHistoryModal(false)
         } catch (error) {

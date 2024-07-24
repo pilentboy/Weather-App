@@ -1,7 +1,7 @@
 
 
 const WeatherCard = ({locationInfo,localTime}) => {
-    console.log(localTime)
+    console.log(locationInfo)
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
@@ -17,6 +17,8 @@ const WeatherCard = ({locationInfo,localTime}) => {
                     {localTime}
                 </span>
             </div>
+
+
 
 
         </div>

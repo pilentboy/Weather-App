@@ -27,7 +27,7 @@ const Home = () => {
         searchInput.current.blur()
         toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
-            const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
+            const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric&${selectedLanIndex == 0 ? 'en' : 'fa'}`)
             addSearchLocationToHistory(location,setLocationHistory)
             navigate("/result", { state:res.data });
         } catch (error) {
