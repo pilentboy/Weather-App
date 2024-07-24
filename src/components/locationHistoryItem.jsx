@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LocationHistoryItem = ({location}) => {
 
-    const {selectedLanIndex,locationHistory,setLocationHistory,URL,apiKey}=useContext(Settings)
+    const {selectedLanIndex,locationHistory,setLocationHistory,URL,apiKey,setHistoryModal}=useContext(Settings)
     const navigate=useNavigate()
 
     const deleteItemFromHistory=()=>{
@@ -26,10 +26,12 @@ const LocationHistoryItem = ({location}) => {
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
             navigate("/result", { state:res.data });
+            setHistoryModal(false)
         } catch (error) {
             toast.dismiss('isSearching')
             toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
         }
+        
     }
 
     return (

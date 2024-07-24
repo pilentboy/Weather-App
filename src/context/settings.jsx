@@ -7,6 +7,8 @@ const SettingsProvider=({children})=>{
     const apiKey='4591cff101074e3dcffaa9f770b4b812'
     const URL='https://api.openweathermap.org/data/2.5/weather?'
         
+    const [histoyModal,setHistoryModal]=useState(false)
+
     const languages=[
         { value: 'en', label: 'EN'},
         { value: 'fa', label: 'FA'}
@@ -25,7 +27,7 @@ const SettingsProvider=({children})=>{
 
 
     return (
-        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,apiKey,URL}}>
+        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,apiKey,URL,histoyModal,setHistoryModal}}>
             {children}
         </Settings.Provider>
     )

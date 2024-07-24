@@ -16,7 +16,7 @@ const Home = () => {
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
-    const {selectedLanIndex,setLocationHistory,apiKey,URL}=useContext(Settings)
+    const {selectedLanIndex,setLocationHistory,apiKey,URL,setHistoryModal}=useContext(Settings)
     const searchInput=useRef(null)
     const navigate=useNavigate()
 
@@ -36,6 +36,7 @@ const Home = () => {
         }
         setSarching(false)
         setLocation('')         
+        setHistoryModal(false)
 
     }
 

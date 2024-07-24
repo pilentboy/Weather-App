@@ -9,8 +9,7 @@ import LocationHistoryItem from "../components/locationHistoryItem";
 
 const Header = () => {
 
-    const {languages,selectedLanIndex,handleChangeLan,locationHistory}=useContext(Settings)
-    const [histoyModal,setHistoryModal]=useState(false)
+    const {languages,selectedLanIndex,handleChangeLan,locationHistory,histoyModal,setHistoryModal}=useContext(Settings)
 
 
     return (

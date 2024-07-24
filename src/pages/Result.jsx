@@ -25,8 +25,8 @@ const Result = () => {
     return <>
     <div className="w-screen h-dvh flex justify-center items-center ">
 
-    <h1>{location.state.name}</h1>
-    <h1 className="text-white text-4xl">{localTime}</h1>
+    <h1 className="text-white text-2xl mx-4">{location.state.name}</h1>
+    <h1 className="text-white text-2xl">{localTime ? localTime : <span>loading time</span>}</h1>
 
     </div>
         
