@@ -1,5 +1,5 @@
 
-const addSearchLocationToHistory= locationName => {
+const addSearchLocationToHistory= (locationName,setLocationHistory) => {
 
     const upperCaseLocation=locationName.charAt(0).toUpperCase() + locationName.slice(1);
     
@@ -10,10 +10,12 @@ const addSearchLocationToHistory= locationName => {
         if(filterLocations.length === 0) {
             updateLocationHistory.push(upperCaseLocation)
             localStorage.setItem('locationHistory',JSON.stringify(updateLocationHistory))
+            setLocationHistory(JSON.parse(localStorage.getItem('locationHistory')))
         } 
        
     }else{
         localStorage.setItem('locationHistory',JSON.stringify([upperCaseLocation]))
+        setLocationHistory(JSON.parse(localStorage.getItem('locationHistory')))
     }
     
 }

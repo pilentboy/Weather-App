@@ -9,9 +9,10 @@ import LocationHistoryItem from "../components/locationHistoryItem";
 
 const Header = () => {
 
-    const {languages,selectedLanIndex,handleChangeLan}=useContext(Settings)
+    const {languages,selectedLanIndex,handleChangeLan,locationHistory}=useContext(Settings)
     const [histoyModal,setHistoryModal]=useState(false)
-    const locationHistory= localStorage.getItem('locationHistory') 
+
+    console.log(locationHistory)
 
     return (
         <>
@@ -62,14 +63,16 @@ const Header = () => {
                 </div>
 
                 {/* locations */}
-                <div className=" w-full h-full py-2 flex flex-col items-center overflow-y-auto">
-                    
-                    {
-                        locationHistory?.length > 0 ? JSON.parse(locationHistory).map((location,index) => (
-                            <LocationHistoryItem key={index} location={location} id={index}/>
-                        )) : null
-                    }
+                <div className=" w-full h-full py-2 realtive flex flex-col items-center overflow-y-auto">
               
+                    {
+                        locationHistory && locationHistory.length > 0 ? locationHistory.map((location,index) => (
+                            <LocationHistoryItem key={index} location={location} />
+                        )) : <h1 className="w-3/4 text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-yellow-500 bg-black">
+                            {selectedLanIndex == 0 ? 'Your Search History Is Empty' : 'تاریخچه جستجوی شما خالی است'}
+                             </h1>
+                    } 
+               
                 </div>
 
 

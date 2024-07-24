@@ -17,7 +17,7 @@ const Home = () => {
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
-    const {selectedLanIndex}=useContext(Settings)
+    const {selectedLanIndex,setLocationHistory}=useContext(Settings)
     const searchInput=useRef(null)
     const navigate=useNavigate()
 
@@ -29,7 +29,7 @@ const Home = () => {
         toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
-            addSearchLocationToHistory(location)
+            addSearchLocationToHistory(location,setLocationHistory)
             navigate("/result", { state:res.data });
         } catch (error) {
             toast.dismiss('isSearching')

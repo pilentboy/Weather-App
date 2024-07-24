@@ -3,16 +3,21 @@ import { MdOutlineDelete } from "react-icons/md";
 import { Settings } from "../context/settings";
 import { useContext } from "react";
 
-const LocationHistoryItem = ({location,id}) => {
+const LocationHistoryItem = ({location}) => {
 
-    const {selectedLanIndex}=useContext(Settings)
+    const {selectedLanIndex,locationHistory,setLocationHistory}=useContext(Settings)
 
     const deleteItemFromHistory=()=>{
-        console.log(id)
+
+        const updatedSearchedLocations=locationHistory.filter(locationName => locationName !== location)
+        console.log(updatedSearchedLocations)
+        localStorage.setItem('locationHistory',JSON.stringify(updatedSearchedLocations))
+
+        setLocationHistory(updatedSearchedLocations)
     }
 
     return (
-        <div className="flex justify-around w-full items-center my-2">
+        <div className="flex justify-between w-3/4 items-center my-2 ">
 
         <div className="flex items-center  duration-200 cursor-pointer  " >
             <CiLocationOn className="text-white text-2xl" />

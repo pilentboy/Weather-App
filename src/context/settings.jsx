@@ -13,6 +13,7 @@ const SettingsProvider=({children})=>{
 
     const [selectedLanIndex,setSelectedLanIndex]=useState(localStorage.getItem('language')?.valueOf() || 0)
         
+    const [locationHistory,setLocationHistory]=useState(JSON.parse(localStorage.getItem('locationHistory')))
 
 
     const handleChangeLan=v => {
@@ -23,7 +24,7 @@ const SettingsProvider=({children})=>{
 
 
     return (
-        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan}}>
+        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory}}>
             {children}
         </Settings.Provider>
     )
