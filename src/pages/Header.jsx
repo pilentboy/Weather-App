@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Select from 'react-select'
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
 import CloseButton from "../components/closeButton";
