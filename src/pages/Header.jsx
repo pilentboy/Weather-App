@@ -10,7 +10,7 @@ import SearchModalItem from "../components/searchModalItem";
 const Header = () => {
 
     const {languages,selectedLanIndex,handleChangeLan}=useContext(Settings)
-    const [histoyModal,setHistoryModal]=useState(true)
+    const [histoyModal,setHistoryModal]=useState(false)
    
     return (
         <>

@@ -1,9 +1,10 @@
 import Button from '../components/button'
 import SlideShow from '../components/slideShow';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
-import { useEffect,useContext, useState, useRef} from "react";
+import {useContext, useState, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import addSearchLocationToHistory from '../utils/addSearchLocationToHistory'
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import {Settings} from '../context/settings'
@@ -34,8 +35,9 @@ const Home = () => {
             toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
         }
         setSarching(false)
-        setLocation('')
-       
+        setLocation('')         
+        addSearchLocationToHistory(location)
+
     }
 
 

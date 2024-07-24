@@ -20,7 +20,7 @@ const SettingsProvider=({children})=>{
         window.localStorage.setItem('language',lanIndex)
         setSelectedLanIndex(lanIndex)
     }
-    
+
 
     return (
         <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan}}>
