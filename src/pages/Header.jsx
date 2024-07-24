@@ -3,6 +3,9 @@ import Select from 'react-select'
 import { useContext, useEffect, useState } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
+import { CiLocationOn } from "react-icons/ci";
+
+import CloseButton from "../components/closeButton";
 
 
 const Header = () => {
@@ -48,10 +51,16 @@ const Header = () => {
             {/* display searched history */}
             <div
                 className={`
-                    w-72 md:w-96 h-[400px] z-[999] bg-red-900 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
+                    w-72 md:w-96 flex flex-col h-[400px] z-[999] bg-gray-800 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
                     animate__fadeIn animate__animated animate__fast
                     ${histoyModal ? 'flex' : 'hidden'}`}
             >
+                {/* top */}
+                <div 
+             
+                className="flex items-center w-full border-b border-gray-400 p-1">
+                    <CloseButton action={setHistoryModal}/>
+                </div>
 
             </div>
 
