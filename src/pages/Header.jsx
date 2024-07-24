@@ -1,16 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet,useNavigate } from "react-router-dom";
 import Select from 'react-select'
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
 import CloseButton from "../components/closeButton";
 import LocationHistoryItem from "../components/locationHistoryItem";
-
+import { IoMdHome } from "react-icons/io";
 
 const Header = () => {
 
     const {languages,selectedLanIndex,handleChangeLan,locationHistory,histoyModal,setHistoryModal}=useContext(Settings)
 
+    const navigate=useNavigate()
 
     return (
         <>
@@ -38,12 +39,24 @@ const Header = () => {
                 />
    
                 <button 
+                type="button"
+                aria-label="History"
+                title="History"
                 onClick={()=> setHistoryModal(prev => !prev)}
                 className="ms-3 cursor-pointer text-5xl text-gray-400 hover:scale-110 duration-200">
                     <MdHistoryEdu/>
                 </button>
 
-          
+                <button
+                 type="button"
+                 title="Home page"
+                 aria-label="navigate to home page"
+                 onClick={()=> navigate('/')}
+                className="ms-3 cursor-pointer text-5xl text-gray-400 hover:scale-110 duration-200"
+                >
+
+                    <IoMdHome/>
+                </button>
 
             </header>
 
