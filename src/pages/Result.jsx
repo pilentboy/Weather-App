@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import getLocalTimeLocation from "../utils/getLocalTimeLocation";
 import { useEffect, useState } from "react";
+import WeatherCard from "../components/weatherCard";
 
 const Result = () => {
 
@@ -22,7 +23,7 @@ const Result = () => {
 
     return (
         <div className="w-screen h-dvh flex justify-center items-center ">
-
+            <WeatherCard locationInfo={location.state} localTime={localTime}/>
 
         </div>
 
