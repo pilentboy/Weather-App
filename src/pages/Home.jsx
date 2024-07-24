@@ -42,7 +42,7 @@ const Home = () => {
 
     return (
       
-        <div className='container h-dvh   flex justify-center items-center relative '>
+        <div className='container h-dvh  flex justify-center items-center relative '>
 
             <img 
             src={process.env.PUBLIC_URL + '/assets/image/homeBG.webp'} 
@@ -87,7 +87,6 @@ const Home = () => {
   
           </form>
 
-      
         </div>
       
     );
