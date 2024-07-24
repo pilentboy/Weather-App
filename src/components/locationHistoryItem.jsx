@@ -13,24 +13,22 @@ const LocationHistoryItem = ({location}) => {
     const navigate=useNavigate()
 
     const deleteItemFromHistory=()=>{
-
-        const updatedSearchedLocations=locationHistory.filter(locationName => locationName !== location)
-        console.log(updatedSearchedLocations)
+        const updatedSearchedLocations=locationHistory.reverse().filter(locationName => locationName !== location)
         localStorage.setItem('locationHistory',JSON.stringify(updatedSearchedLocations))
 
-        setLocationHistory(updatedSearchedLocations)
+        setLocationHistory(updatedSearchedLocations.reverse())
     }
 
     const handleSearchLocationFromHistory=async ()=>{
-        toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
+      
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
             navigate("/result", { state:res.data });
             setHistoryModal(false)
         } catch (error) {
-            toast.dismiss('isSearching')
             toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
         }
+
         
     }
 

@@ -10,12 +10,12 @@ const addSearchLocationToHistory= (locationName,setLocationHistory) => {
         if(filterLocations.length === 0) {
             updateLocationHistory.push(upperCaseLocation)
             localStorage.setItem('locationHistory',JSON.stringify(updateLocationHistory))
-            setLocationHistory(JSON.parse(localStorage.getItem('locationHistory')))
+            setLocationHistory(updateLocationHistory.reverse())
         } 
        
     }else{
         localStorage.setItem('locationHistory',JSON.stringify([upperCaseLocation]))
-        setLocationHistory(JSON.parse(localStorage.getItem('locationHistory')))
+        setLocationHistory(JSON.parse(localStorage.getItem('locationHistory')).reverse())
     }
     
 }
