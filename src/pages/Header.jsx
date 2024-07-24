@@ -12,7 +12,6 @@ const Header = () => {
     const {languages,selectedLanIndex,handleChangeLan,locationHistory}=useContext(Settings)
     const [histoyModal,setHistoryModal]=useState(false)
 
-    console.log(locationHistory)
 
     return (
         <>

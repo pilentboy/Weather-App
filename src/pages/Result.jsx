@@ -3,8 +3,9 @@ import { useLocation } from "react-router-dom";
 
 const Result = () => {
 
-    const location=useLocation()
+    const location =useLocation()
 
+    console.log(location.state)
 
     return <h1>{location.state.name}</h1>
     
