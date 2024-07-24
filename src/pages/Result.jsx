@@ -24,7 +24,7 @@ const Result = () => {
     return (
         <div className="w-screen h-dvh flex justify-center items-center ">
             <WeatherCard locationInfo={location.state} localTime={localTime}/>
-
+        
         </div>
 
     )
