@@ -4,14 +4,15 @@ import { useContext, useEffect, useState } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
 import CloseButton from "../components/closeButton";
-import SearchModalItem from "../components/searchModalItem";
+import LocationHistoryItem from "../components/locationHistoryItem";
 
 
 const Header = () => {
 
     const {languages,selectedLanIndex,handleChangeLan}=useContext(Settings)
     const [histoyModal,setHistoryModal]=useState(false)
-   
+    const locationHistory= localStorage.getItem('locationHistory') 
+
     return (
         <>
         <nav>
@@ -62,7 +63,12 @@ const Header = () => {
 
                 {/* locations */}
                 <div className=" w-full h-full py-2 flex flex-col items-center overflow-y-auto">
-                  <SearchModalItem/>
+                    
+                    {
+                        locationHistory?.length > 0 ? JSON.parse(locationHistory).map((location,index) => (
+                            <LocationHistoryItem key={index} location={location} id={index}/>
+                        )) : null
+                    }
               
                 </div>
 
