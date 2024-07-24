@@ -29,6 +29,7 @@ const Home = () => {
         toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
             const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric`)
+            addSearchLocationToHistory(location)
             navigate("/result", { state:res.data });
         } catch (error) {
             toast.dismiss('isSearching')
@@ -36,7 +37,6 @@ const Home = () => {
         }
         setSarching(false)
         setLocation('')         
-        addSearchLocationToHistory(location)
 
     }
 
