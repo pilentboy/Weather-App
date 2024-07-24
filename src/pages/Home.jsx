@@ -11,13 +11,12 @@ import {Settings} from '../context/settings'
 
 const Home = () => {
 
-    const apiKey='4591cff101074e3dcffaa9f770b4b812'
-    const URL='https://api.openweathermap.org/data/2.5/weather?'
+
 
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
-    const {selectedLanIndex,setLocationHistory}=useContext(Settings)
+    const {selectedLanIndex,setLocationHistory,apiKey,URL}=useContext(Settings)
     const searchInput=useRef(null)
     const navigate=useNavigate()
 
@@ -49,13 +48,7 @@ const Home = () => {
             <img 
             src={process.env.PUBLIC_URL + '/assets/image/homeBG.webp'} 
             className={`w-full absolute duration-500 blur-[${!locationFocus ? '0px' : '2px'}] hidden md:block`}/>
-            <ToastContainer 
-                position='top-center'
-                hideProgressBar={false}
-                newestOnTop={false}
-                rtl={false}
-                theme="light"    
-            />
+       
 
             
             <SlideShow />
@@ -89,6 +82,15 @@ const Home = () => {
   
           </form>
 
+     
+            <ToastContainer 
+                    position='top-center'
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    rtl={selectedLanIndex == 0 ? false : true}
+                    theme="light"    
+                />
+                
         </div>
       
     );

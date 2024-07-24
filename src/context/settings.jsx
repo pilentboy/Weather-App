@@ -4,7 +4,8 @@ const Settings=createContext()
 
 const SettingsProvider=({children})=>{
 
-
+    const apiKey='4591cff101074e3dcffaa9f770b4b812'
+    const URL='https://api.openweathermap.org/data/2.5/weather?'
         
     const languages=[
         { value: 'en', label: 'EN'},
@@ -24,7 +25,7 @@ const SettingsProvider=({children})=>{
 
 
     return (
-        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory}}>
+        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,apiKey,URL}}>
             {children}
         </Settings.Provider>
     )
