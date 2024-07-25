@@ -7,7 +7,7 @@ const WeatherCard = ({locationInfo,localTime}) => {
     const {selectedLanIndex}=useContext(Settings)
 
     return (
-        <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
+        <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
 
             {/* local time & location name */}
             <div className={` justify-between items-center ${selectedLanIndex == 0 ? 'flex' : 'flex flex-row-reverse'}`}>
