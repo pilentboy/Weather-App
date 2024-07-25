@@ -1,7 +1,7 @@
 import Button from '../components/button'
 import SlideShow from '../components/slideShow';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
-import {useContext, useState, useRef} from "react";
+import {useContext,useEffect, useState, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import addSearchLocationToHistory from '../utils/addSearchLocationToHistory'
@@ -41,14 +41,16 @@ const Home = () => {
     }
 
 
-
+	useEffect(()=>{
+		console.log(locationFocus)
+	},[locationFocus])
     return (
       
         <div className='container h-dvh  flex justify-center items-center relative '>
 
             <img 
             src={process.env.PUBLIC_URL + '/assets/image/homeBG.webp'} 
-            className={`w-full absolute duration-500  hidden md:block blur-[${!locationFocus ? '0px' : '2px'}]`}/>
+            className={`w-full absolute duration-500  hidden md:block ${locationFocus ? 'blur-[2px]' : 'blur-[0px]'}`}/>
        
 
             
