@@ -13,6 +13,8 @@ const Header = () => {
 
     const navigate=useNavigate()
 
+    const handleDestoryModal=e => e.currentTarget === e.target ? setHistoryModal(false) : null
+
     return (
         <>
         <nav>
@@ -61,20 +63,23 @@ const Header = () => {
             </header>
 
             {/* history modal */}
-			<div className={`w-screen h-dvh z-[1000] animate__fadeIn animate__animated animate__fast  ${histoyModal ? 'flex' : 'hidden'} bg-gray-800 bg-opacity-80 fixed`}> 
+			<div
+             className={`w-screen h-dvh z-[1000] animate__fadeIn animate__animated animate__fast  ${histoyModal ? 'flex' : 'hidden'} bg-gray-800 bg-opacity-80 fixed`}
+             onClick={e=> handleDestoryModal(e)}
+             > 
 				<div
                 className={`
                     w-72 md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
                     
                     `}
             >
-                {/* top */}
+                {/* top of the history modal */}
                 <div 
                 className="flex items-center w-full border-b border-gray-400 p-1">
                     <CloseButton action={setHistoryModal}/>
                 </div>
 
-                {/* locations */}
+                {/* list of searched locations */}
                 <div className=" w-full h-full py-2 realtive flex flex-col items-center overflow-y-auto">
               
                     {
