@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const WeatherCard = ({locationInfo,localTime}) => {
     const {selectedLanIndex}=useContext(Settings)
-    
+
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
@@ -40,24 +40,33 @@ const WeatherCard = ({locationInfo,localTime}) => {
             {/* details */}
             <div className="flex justify-between items-center">
 
-                <div className="flex flex-col items-center space-y-1">
+                <div className="flex flex-col  space-y-1">
                     <div 
-                    className="flex items-center justify-between  w-10"
+                    className="flex items-center space-x-1 min-w-7 "
                     title="Wind speed"
                     >
                         <RiWindyFill className="text-gray-400 "/>
                             <span className="text-gray-200 text-xs">
                                 {locationInfo.wind.speed}
+                                
+                                <span className="text-[8px]">
+                                    m/s
+                                </span>
                             </span>
                      
                   
                     </div>
                     <div 
-                     className="flex items-center justify-between w-10"                    title="Humidiy"
+                    className="flex items-center space-x-1 m-w-12  "          
+                    title="Humidiy"
                     >
                         <WiHumidity className="text-gray-400 text-xl "/>
                         <span className="text-gray-200 text-xs">
-                            {locationInfo.main.humidity}%
+                            {locationInfo.main.humidity}
+                                     
+                            <span className="text-[8px]">
+                                    %
+                             </span>
                         </span>
                     </div>
                 </div>
