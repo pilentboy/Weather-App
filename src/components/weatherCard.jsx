@@ -12,10 +12,13 @@ const WeatherCard = ({locationInfo,localTime}) => {
             {/* local time & location name */}
             <div className={` justify-between items-center ${selectedLanIndex == 0 ? 'flex' : 'flex flex-row-reverse'}`}>
                 <span 
-                className="text-white text-2xl"
-                title={locationInfo.sys.country}
+                className="text-white text-2xl relative"
                 >
                     {locationInfo.name}
+                    <span 
+                    className={`absolute -top-4  ${selectedLanIndex == 0 ?'left-0' :'right-0'} text-[12px] text-gray-400`}>
+                        {locationInfo.sys.country}
+                    </span>
                 </span>
                 <span 
                 className="text-lg text-gray-400"
