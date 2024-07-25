@@ -33,6 +33,18 @@
         height: 1px;
         background:linear-gradient(to right,rgb(3, 221, 167) 40%,rgb(52, 157, 255) 50%);
     }
+	
+	
+	.test:after{
+		content:'';
+		width:100vw;
+		height:100dvh;
+		background-color:;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:-1
+	}
 
 
     
