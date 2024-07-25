@@ -2,6 +2,7 @@ import { RiWindyFill } from "react-icons/ri";
 import { WiHumidity } from "react-icons/wi";
 import { Settings } from "../context/settings";
 import { useContext } from "react";
+import { Watch } from "react-loader-spinner";
 
 const WeatherCard = ({locationInfo,localTime}) => {
     const {selectedLanIndex}=useContext(Settings)
@@ -20,11 +21,22 @@ const WeatherCard = ({locationInfo,localTime}) => {
                         {locationInfo.sys.country}
                     </span>
                 </span>
+                {/* local time */}
                 <span 
                 className="text-lg text-gray-400"
                 title='local time'
                 >
-                    {localTime}
+              
+                    {localTime ? localTime :       <Watch
+                        visible={true}
+                        height="20"
+                        width="20"
+                        radius="48"
+                        color="#9ca3af"
+                        ariaLabel="watch-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        /> }
                 </span>
             </div>
 
