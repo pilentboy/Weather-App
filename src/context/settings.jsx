@@ -15,8 +15,10 @@ const SettingsProvider=({children})=>{
     ]
 
     const [selectedLanIndex,setSelectedLanIndex]=useState(localStorage.getItem('language')?.valueOf() || 0)
+	
+	const localStorageHistori=localStorage.getItem('locationHistory')
         
-    const [locationHistory,setLocationHistory]=useState(JSON.parse(localStorage.getItem('locationHistory')).reverse())
+    const [locationHistory,setLocationHistory]=useState(localStorage ? JSON.parse(localStorageHistori) : [])
 
 
     const handleChangeLan=v => {
@@ -25,6 +27,7 @@ const SettingsProvider=({children})=>{
         setSelectedLanIndex(lanIndex)
     }
 
+	
 
     return (
         <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,apiKey,URL,histoyModal,setHistoryModal}}>
