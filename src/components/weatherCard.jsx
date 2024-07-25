@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const WeatherCard = ({locationInfo,localTime}) => {
     const {selectedLanIndex}=useContext(Settings)
-
+    console.log(locationInfo)
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
@@ -42,20 +42,21 @@ const WeatherCard = ({locationInfo,localTime}) => {
 
                 <div className="flex flex-col items-center space-y-1">
                     <div 
-                    className="flex items-center"
+                    className="flex items-center justify-between  w-10"
                     title="Wind speed"
                     >
-                        <RiWindyFill className="text-gray-400"/>
-                        <span className="text-gray-200 text-xs ms-1">
-                            {locationInfo.wind.speed}
-                        </span>
+                        <RiWindyFill className="text-gray-400 "/>
+                            <span className="text-gray-200 text-xs">
+                                {locationInfo.wind.speed}
+                            </span>
+                     
+                  
                     </div>
                     <div 
-                    className="flex items-center"
-                    title="Humidiy"
+                     className="flex items-center justify-between w-10"                    title="Humidiy"
                     >
-                        <WiHumidity className="text-gray-400 "/>
-                        <span className="text-gray-200 text-xs ms-1">
+                        <WiHumidity className="text-gray-400 text-xl "/>
+                        <span className="text-gray-200 text-xs">
                             {locationInfo.main.humidity}%
                         </span>
                     </div>
