@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const WeatherCard = ({locationInfo,localTime}) => {
     const {selectedLanIndex}=useContext(Settings)
-    console.log(locationInfo)
+    
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 bg-sky-950">
 
