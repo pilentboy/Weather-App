@@ -1,7 +1,5 @@
 import { RiWindyFill } from "react-icons/ri";
 import { WiHumidity } from "react-icons/wi";
-import { Settings } from "../context/settings";
-import { useContext } from "react";
 import { Watch } from "react-loader-spinner";
 
 const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
