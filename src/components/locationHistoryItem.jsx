@@ -22,9 +22,8 @@ const LocationHistoryItem = ({location}) => {
     const handleSearchLocationFromHistory=async ()=>{
       
         try {
-            const res=await axios(``)
-
-            // navigate("/result", { state:res.data });
+            const res=await axios(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${location}`)
+            navigate("/result", { state:res.data });
             setHistoryModal(false)
         } catch (error) {
             toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            

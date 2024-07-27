@@ -1,7 +1,7 @@
 import Button from '../components/button'
 import SlideShow from '../components/slideShow';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
-import {useContext,useEffect, useState, useRef} from "react";
+import {useContext, useState, useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import addSearchLocationToHistory from '../utils/addSearchLocationToHistory'
@@ -28,7 +28,7 @@ const Home = () => {
         toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
             const res=await axios(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${location}`)
-            addSearchLocationToHistory(location,setLocationHistory)
+            addSearchLocationToHistory(location.trim(),setLocationHistory)
             navigate("/result", { state:res.data });
         } catch (error) {
             toast.dismiss('isSearching')

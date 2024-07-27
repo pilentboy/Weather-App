@@ -5,10 +5,8 @@ import { useContext } from "react";
 import { Watch } from "react-loader-spinner";
 
 const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
+    
     const {selectedLanIndex}=useContext(Settings)
-
-    console.log(currentWeather,"1")
-    console.log(locationInfo,"2")
 
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
@@ -20,8 +18,8 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
                 >
                     {locationInfo.name}
                     <span 
-                    className={`absolute -top-4  ${selectedLanIndex == 0 ?'left-0' :'right-0'} text-[12px] text-gray-400`}>
-                        {/* {locationInfo.country} */}
+                    className={`absolute -top-4  ${selectedLanIndex == 0 ?'left-0' :'right-0'} text-[10px] text-gray-400 w-64`}>
+                        {locationInfo.country}
                     </span>
                 </span>
                 {/* local time */}
@@ -45,13 +43,13 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
 
             {/* weather description & image */}
             <div className="flex flex-col justify-center items-center">
-                {/* <img
-                 src={`https://openweathermap.org/img/wn/${locationInfo.weather[0].icon}.png`}
+                <img
+                 src={`${currentWeather.condition.icon}`}
                  className="w-[110px]"
-                /> */}
+                />
 
                 <span className="text-gray-400">
-                    {/* {locationInfo.weather[0].description} */}
+                    {currentWeather.condition.text}
                 </span>
             </div>
 
@@ -65,10 +63,10 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
                     >
                         <RiWindyFill className="text-gray-400 "/>
                             <span className="text-gray-200 text-xs">
-                                {/* {locationInfo.wind.speed} */}
+                                {currentWeather.wind_kph}
                                 
                                 <span className="text-[8px]">
-                                    m/s
+                                    kph
                                 </span>
                             </span>
                      
@@ -80,7 +78,7 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
                     >
                         <WiHumidity className="text-gray-400 text-xl "/>
                         <span className="text-gray-200 text-xs">
-                            {/* {locationInfo.main.humidity} */}
+                            {currentWeather.humidity}
                                      
                             <span className="text-[8px]">
                                     %
@@ -94,7 +92,7 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
                 title="Temperature"
                 >
                     <span className="text-2xl">
-                        {/* {locationInfo.main.temp} */}
+                        {currentWeather.temp_c}
                     </span>
                     <span className="text-4xl">
                     °
