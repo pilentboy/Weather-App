@@ -6,19 +6,18 @@ import { Watch } from "react-loader-spinner";
 
 const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
     
-    const {selectedLanIndex}=useContext(Settings)
 
     return (
         <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
 
             {/* local time & location name */}
-            <div className={` justify-between items-center ${selectedLanIndex == 0 ? 'flex' : 'flex flex-row-reverse'}`}>
+            <div className={` justify-between items-center flex`}>
                 <span 
                 className="text-white text-2xl relative"
                 >
                     {locationInfo.name}
                     <span 
-                    className={`absolute -top-4  ${selectedLanIndex == 0 ?'left-0' :'right-0'} text-[10px] text-gray-400 w-64`}>
+                    className={`absolute -top-4 left-0 text-[10px] text-gray-400 w-64`}>
                         {locationInfo.country}
                     </span>
                 </span>

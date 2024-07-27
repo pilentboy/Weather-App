@@ -9,7 +9,7 @@ import { IoMdHome } from "react-icons/io";
 
 const Header = () => {
 
-    const {languages,selectedLanIndex,handleChangeLan,locationHistory,histoyModal,setHistoryModal}=useContext(Settings)
+    const {languages,handleChangeLan,locationHistory,histoyModal,setHistoryModal}=useContext(Settings)
 
     const navigate=useNavigate()
 
@@ -22,9 +22,8 @@ const Header = () => {
             <header className="w-screen container absolute top-0 left-[50%] translate-x-[-50%] px-4  my-4  flex items-center  z-[999] md:px-2">
             
                 <Select 
-                onChange={e => handleChangeLan(e.value)}
                     options={languages} 
-                    defaultValue={languages[selectedLanIndex]}
+                    defaultValue={languages[0]}
                     styles={{
                         control: (provided) => ({
                             ...provided,
@@ -86,7 +85,7 @@ const Header = () => {
                         locationHistory && locationHistory.length > 0 ? locationHistory.map((location,index) => (
                             <LocationHistoryItem key={index} location={location} />
                         )) : <h1 className="w-3/4 text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-yellow-500 bg-black">
-                            {selectedLanIndex == 0 ? 'Your Search History Is Empty' : 'تاریخچه جستجوی شما خالی است'}
+                            {'Your Search History Is Empty'}
                              </h1>
                     } 
                
