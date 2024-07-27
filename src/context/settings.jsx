@@ -4,8 +4,7 @@ const Settings=createContext()
 
 const SettingsProvider=({children})=>{
 
-    const apiKey='4591cff101074e3dcffaa9f770b4b812'
-    const URL='https://api.openweathermap.org/data/2.5/weather?'
+    const weatherAPIKey='bb5501c8849043b0878200739242707'
         
     const [histoyModal,setHistoryModal]=useState(false)
 
@@ -30,7 +29,7 @@ const SettingsProvider=({children})=>{
 	
 
     return (
-        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,apiKey,URL,histoyModal,setHistoryModal}}>
+        <Settings.Provider value={{languages,selectedLanIndex,handleChangeLan,locationHistory,setLocationHistory,weatherAPIKey,histoyModal,setHistoryModal}}>
             {children}
         </Settings.Provider>
     )

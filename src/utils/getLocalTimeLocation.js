@@ -1,11 +1,11 @@
 import axios from "axios"
 
-async function getLocalTimeLocation(coord){
+async function getLocalTimeLocation(lat,lon){
 
     const apikey='X7K0FSMA7VZI'
 
     try {
-        const res=await axios.get(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apikey}&lat=${coord['lat']}&lng=${coord['lon']}&by=position&format=json`)
+        const res=await axios.get(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apikey}&lat=${lat}&lng=${lon}&by=position&format=json`)
    
         const localTimeLocation=res.data.formatted.split(' ')[1].split(":")
     

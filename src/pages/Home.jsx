@@ -16,7 +16,7 @@ const Home = () => {
     const [location,setLocation]=useState('')
     const [searching,setSarching]=useState(false)
     const [locationFocus,setLocationFocus]=useState(false)
-    const {selectedLanIndex,setLocationHistory,apiKey,URL,setHistoryModal}=useContext(Settings)
+    const {selectedLanIndex,setLocationHistory,weatherAPIKey,setHistoryModal}=useContext(Settings)
     const searchInput=useRef(null)
     const navigate=useNavigate()
 
@@ -27,7 +27,7 @@ const Home = () => {
         searchInput.current.blur()
         toast.info(selectedLanIndex == 0 ? 'Searching' : 'در حال جستجو',{autoClose:false,toastId:'isSearching',closeOnClick:false})
         try {
-            const res=await axios(`${URL}appid=${apiKey}&q=${location}&units=metric&lang=${selectedLanIndex == 0 ? 'en' : 'fa'}`)
+            const res=await axios(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${location}`)
             addSearchLocationToHistory(location,setLocationHistory)
             navigate("/result", { state:res.data });
         } catch (error) {
@@ -41,9 +41,7 @@ const Home = () => {
     }
 
 
-	useEffect(()=>{
-		console.log(locationFocus)
-	},[locationFocus])
+	
     return (
       
         <div className='container h-dvh  flex justify-center items-center relative '>

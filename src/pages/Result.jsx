@@ -11,19 +11,19 @@ const Result = () => {
     const [localTime,setLocalTime]=useState();
 
     async function setLocalTimeLocation(){
-        const res=await  getLocalTimeLocation(location.state.coord)
+        const res=await  getLocalTimeLocation(location.state.location.lat,location.state.location.lon)
         setLocalTime(res)
     }
 
     useEffect(()=>{
-       
+       console.log(location.state)
         setLocalTimeLocation()
         
     },[location.state])
 
     return (
         <div className="w-screen h-dvh flex justify-center items-center ">
-            <WeatherCard locationInfo={location.state} localTime={localTime}/>
+            <WeatherCard currentWeather={location.state.current} locationInfo={location.state.location} localTime={localTime}/>
         
         </div>
 
