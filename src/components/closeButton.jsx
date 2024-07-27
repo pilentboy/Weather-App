@@ -5,6 +5,7 @@ const CloseButton = ({action}) => {
         <button  
         onClick={()=> action(false)}
         className="text-4xl text-red-600 hover:scale-110 duration-200">
+            
             <IoIosCloseCircleOutline/>
         </button>
     );
