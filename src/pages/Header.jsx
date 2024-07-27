@@ -68,8 +68,7 @@ const Header = () => {
              > 
 				<div
                 className={`
-                    w-72 md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
-                    
+                    w-72 md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900 absolute top-[50%] left-[50%] translate-x-[-50%] duration-500 translate-y-[-50%]  
                     `}
             >
                 {/* top of the history modal */}
