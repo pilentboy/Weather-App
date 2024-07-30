@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import WeatherCard from "../components/weatherCard";
 import getWeatherForecast from "../utils/getWeatherForecast";
 import ForecastSlider from "../components/Sliders/forecastSlider/forecastSlider";
+import { BiSolidArrowToBottom } from "react-icons/bi";
+
 
 const Result = () => {
 
@@ -29,10 +31,10 @@ const Result = () => {
 		<>
 
 		{/* current weather  */}
-        <div className="w-full h-dvh md:max-h-[800px] flex  justify-center items-center ">
+        <div className="w-full h-dvh md:max-h-[800px] flex  justify-center items-center relative ">
 
             <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>	
-
+			<BiSolidArrowToBottom className="text-[40px] text-yellow-500 absolute bottom-[5%] md:hidden lg:block"/>
 		</div>	
 
 		{/* forecast data */}

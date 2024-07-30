@@ -26,7 +26,7 @@ const ForecastSlider = ({forecast}) => {
                {
                 forecast?.map((info,index) => (
                     <SwiperSlide key={index}>
-                    <div className="flex flex-col items-center justify-between h-full w-48 rounded-md bg-sky-950 text-white text-base py-2">
+                    <div className="flex flex-col items-center justify-between h-full rounded-md bg-sky-950 text-white text-base py-2 mx-1 md:mx-0 md:w-48 ">
 
                        <div className="flex flex-col items-center">
                         <span>
