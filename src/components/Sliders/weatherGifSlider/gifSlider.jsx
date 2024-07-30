@@ -5,7 +5,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css';
 import SlideShowImg from "./slideShowImg";
 
-function SlideShow() {
+function GifSlider() {
     const gifSrc=['sunny.gif','rainSun.gif','wind.gif','snow.gif'] // files are in the public assets
   return (
     <div className=" w-40  absolute bottom-10 left-[50%] translate-x-[-50%] block lg:hidden">
@@ -32,4 +32,4 @@ function SlideShow() {
   );
 }
 
-export default SlideShow;
+export default GifSlider;

@@ -1,5 +1,5 @@
 import Button from '../components/button'
-import SlideShow from '../components/slideShow';
+import GifSlider from '../components/Sliders/weatherGifSlider/gifSlider';
 import { FaArrowRight,FaArrowLeft } from "react-icons/fa";
 import {useContext, useState, useRef} from "react";
 import { useNavigate } from "react-router-dom";
@@ -52,7 +52,7 @@ const Home = () => {
        
 
             
-            <SlideShow />
+            <GifSlider />
 
             <img src={process.env.PUBLIC_URL + '/assets/image/mobileBG2.png'} 
             className={` w-96 h-42  duration-500  absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] block md:hidden blur-[${!locationFocus ? '0px' : '2px'}]`} />
