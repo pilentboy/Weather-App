@@ -1,6 +1,6 @@
 {
-	"homepage": "https://pilentboy.github.io/Weather-App",
-	"name": "games",
+	"homepage": "https://pilentboy.github.io/Weather-App ",
+	"name": "Weather-App",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
