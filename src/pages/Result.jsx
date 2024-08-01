@@ -31,7 +31,7 @@ const Result = () => {
 		<>
 
 		{/* current weather  */}
-        <div className="w-full h-dvh md:max-h-[800px] flex  justify-center items-center relative ">
+        <div className="w-full h-screen md:max-h-[800px] flex  justify-center items-center relative ">
 
             <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>	
 			<BiSolidArrowToBottom className="text-[40px] text-yellow-500 absolute bottom-[5%] md:hidden lg:block"/>
