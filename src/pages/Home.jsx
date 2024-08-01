@@ -22,7 +22,7 @@ const Home = () => {
 
     
     const handleSearchLocation=async e=>{ 
-        e?.preventDefault()
+        e.preventDefault()
         setSarching(true)
         searchInput.current.blur()
         toast.info('Searching',{autoClose:false,toastId:'isSearching',closeOnClick:false})
@@ -68,8 +68,8 @@ const Home = () => {
               autoFocus
               onFocus={()=> setLocationFocus(true)}
               onBlur={()=> setLocationFocus(false)}
-              onChange={(prev) => {
-                // disable changing value while searching is in process
+              onChange={ prev => {
+                // disable changing value while searching is in progress
                 if(!searching) setLocation(prev.target.value) 
               }}
               className={`h-full w-3/4 p-2 

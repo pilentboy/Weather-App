@@ -23,10 +23,10 @@ const LocationHistoryItem = ({location}) => {
       
         try {
             const res=await axios(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${location}`)
-            navigate("/result", { state:res.data });
             setHistoryModal(false)
+            navigate("/result", { state:res.data });
         } catch (error) {
-            toast.error(selectedLanIndex == 0 ? 'Location Not Found!' : 'اطلاعاتی دریافت نشد',{autoClose:4000,draggable:true,closeOnClick:true})            
+            toast.error('Location Not Found!',{autoClose:4000,draggable:true,closeOnClick:true})            
         }
 
         
