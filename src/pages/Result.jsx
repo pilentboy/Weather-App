@@ -38,7 +38,7 @@ const Result = () => {
 		</div>	
 
 		{/* forecast data */}
-		<div className="w-full h-fit pb-14 flex justify-center items-center">
+		<div className="w-full h-fit pb-14  flex justify-center items-center ">
 			<ForecastSlider forecast={forecast}/>
 		</div>
 		

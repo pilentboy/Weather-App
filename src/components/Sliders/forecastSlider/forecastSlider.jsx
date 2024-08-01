@@ -1,7 +1,8 @@
 import { Swiper,SwiperSlide } from "swiper/react";
+import {Scrollbar} from "swiper/modules";
 import 'swiper/css/effect-fade';
-import 'swiper/css/autoplay';
 import 'swiper/css';
+import 'swiper/css/scrollbar';
 
 
 const ForecastSlider = ({forecast}) => {
@@ -19,8 +20,12 @@ const ForecastSlider = ({forecast}) => {
     return (
         <div className="w-[95%] md:w-[80%] lg:w-[60%] h-48">
             <Swiper
-                speed={1000}
+                speed={500}
                 slidesPerView={3}
+                modules={[Scrollbar]}
+                scrollbar={{
+                    hide: true,
+                  }}
                 className="h-full cursor-grab active:cursor-grabbing"
             >
                {
