@@ -75,7 +75,7 @@ const Header = () => {
 
             {/* history modal */}
 		
-             <ModalContainer action={destroyModal} display={histoyModal}>
+             <ModalContainer action={handleDestoryModal} display={histoyModal}>
                 <div
                         className={`
                             w-3/4 rounded-t-2xl md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900
