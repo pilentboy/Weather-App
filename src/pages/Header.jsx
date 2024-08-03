@@ -6,6 +6,7 @@ import { MdHistoryEdu } from "react-icons/md";
 import CloseButton from "../components/closeButton";
 import LocationHistoryItem from "../components/locationHistoryItem";
 import { IoMdHome } from "react-icons/io";
+import ModalContainer from "../components/modalContainer";
 
 const Header = () => {
 
@@ -73,41 +74,41 @@ const Header = () => {
             </header>
 
             {/* history modal */}
-			<div
-             className={`w-screen h-dvh z-[1000] animate__fadeIn animate__animated animate__fast  ${histoyModal ? 'flex' : 'hidden'} bg-gray-800 bg-opacity-80 fixed`}
-             onClick={e=> handleDestoryModal(e)}
-             > 
-			    <div
-                    className={`
-                        w-3/4 rounded-t-2xl md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900
-                        absolute bottom-0 left-[50%] translate-x-[-50%] duration-500 md:rounded-none md:top-[50%] md:translate-y-[-50%]
-                        ${historyModalPiostion}
-                        `}
-                >
-                {/* top of the history modal */}
-                <div 
-                className="flex items-center w-full border-b border-gray-400 p-1">
-                    <CloseButton action={setHistoryModal}/>
+		
+             <ModalContainer action={destroyModal} display={histoyModal}>
+                <div
+                        className={`
+                            w-3/4 rounded-t-2xl md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900
+                            absolute bottom-0 left-[50%] translate-x-[-50%] duration-500 md:rounded-none md:top-[50%] md:translate-y-[-50%]
+                            ${historyModalPiostion}
+                            `}
+                    >
+                    {/* top of the history modal */}
+                    <div 
+                    className="flex items-center w-full border-b border-gray-400 p-1">
+                        <CloseButton action={setHistoryModal}/>
+                    </div>
+
+                    {/* list of searched locations */}
+                    <div className=" w-full h-full py-2 realtive flex flex-col items-center overflow-y-auto">
+                
+                        {
+                            locationHistory && locationHistory.length > 0 ? locationHistory.map((location,index) => (
+                                <LocationHistoryItem key={index} location={location} />
+                            )) : <h1 className="w-3/4 text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-yellow-500 bg-black">
+                                {selectedLanIndex == 0 ? 'Your Search History Is Empty' : 'تاریخچه جستجوی شما خالی است'}
+                                </h1>
+                        } 
+                
+                        </div>
+                
                 </div>
-
-                {/* list of searched locations */}
-                <div className=" w-full h-full py-2 realtive flex flex-col items-center overflow-y-auto">
-              
-                    {
-                        locationHistory && locationHistory.length > 0 ? locationHistory.map((location,index) => (
-                            <LocationHistoryItem key={index} location={location} />
-                        )) : <h1 className="w-3/4 text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-yellow-500 bg-black">
-                            {selectedLanIndex == 0 ? 'Your Search History Is Empty' : 'تاریخچه جستجوی شما خالی است'}
-                             </h1>
-                    } 
-               
-					</div>
-			
-			</div>
             
+             </ModalContainer>
+			  
 
 
-            </div>
+           
 
         </nav>
      
