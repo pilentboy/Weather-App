@@ -1,6 +1,6 @@
 import { Outlet,useNavigate } from "react-router-dom";
 import Select from 'react-select'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {Settings} from '../context/settings'
 import { MdHistoryEdu } from "react-icons/md";
 import CloseButton from "../components/closeButton";
@@ -14,6 +14,16 @@ const Header = () => {
     const navigate=useNavigate()
 
     const handleDestoryModal=e => e.currentTarget === e.target ? setHistoryModal(false) : null
+
+    const [historyModalPiostion,setHistoryModalPiostion]= useState('translate-y-[100%]')
+
+    useEffect(()=>{
+        if(histoyModal){
+            setHistoryModalPiostion('translate-y-[0]')
+        }else{
+            setHistoryModalPiostion('translate-y-[100%]')
+        }
+    },[histoyModal])
 
     return (
         <>
@@ -67,12 +77,13 @@ const Header = () => {
              className={`w-screen h-dvh z-[1000] animate__fadeIn animate__animated animate__fast  ${histoyModal ? 'flex' : 'hidden'} bg-gray-800 bg-opacity-80 fixed`}
              onClick={e=> handleDestoryModal(e)}
              > 
-				<div
-                className={`
-                    w-72 md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] 
-                    
-                    `}
-            >
+			    <div
+                    className={`
+                        w-3/4 rounded-t-2xl md:w-96  flex flex-col h-[400px] z-[999] bg-gray-900
+                        absolute bottom-0 left-[50%] translate-x-[-50%] duration-500 md:rounded-none md:top-[50%] md:translate-y-[-50%]
+                        ${historyModalPiostion}
+                        `}
+                >
                 {/* top of the history modal */}
                 <div 
                 className="flex items-center w-full border-b border-gray-400 p-1">
