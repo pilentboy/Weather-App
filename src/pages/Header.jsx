@@ -90,7 +90,7 @@ const Header = () => {
                     </div>
 
                     {/* list of searched locations */}
-                    <div className=" w-full h-full py-2 realtive flex flex-col items-center overflow-y-auto">
+                    <div className=" w-full h-full py-2 px-4 md:px-12 realtive flex flex-col items-center overflow-y-auto">
                 
                         {
                             locationHistory && locationHistory.length > 0 ? locationHistory.map((location,index) => (

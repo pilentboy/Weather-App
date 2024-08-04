@@ -34,7 +34,7 @@ const LocationHistoryItem = ({location}) => {
 
     return (
         <>
-           <div className="flex justify-between w-3/4 items-center my-2 ">
+           <div className="flex justify-between items-center my-2 w-full">
 
                 <div 
                 onClick={handleSearchLocationFromHistory}
