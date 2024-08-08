@@ -16,21 +16,21 @@ function App() {
   return(
     <Container>
           <BrowserRouter>
-          <SettingsProvider>
+            <SettingsProvider>
 
-            <Routes>
-                  <Route path='/' element={<Header/>}>
-                    <Route  index element={<Home/>} />
-                      <Route path='result' element={<ProtectedRoute/>} >
-                      <Route index element={<Result/>} />
+              <Routes>
+                    <Route path='/' element={<Header/>}>
+                      <Route  index element={<Home/>} />
+                        <Route path='result' element={<ProtectedRoute/>} >
+                        <Route index element={<Result/>} />
+                      </Route>
                     </Route>
-                  </Route>
 
-                  <Route path="*" element={<Navigate to="/" />} />
+                    <Route path="*" element={<Navigate to="/" />} />
 
               </Routes>
 
-          </SettingsProvider>
+            </SettingsProvider>
           
           </BrowserRouter>
     </Container>
