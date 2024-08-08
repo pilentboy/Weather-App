@@ -1,6 +1,6 @@
 import axios from "axios"
 
-async function getLocalTimeLocation(lat,lon){
+async function getLocalTimeLocation(lat,lon,setLocalTime){
 
     const apikey='X7K0FSMA7VZI'
 
@@ -9,7 +9,7 @@ async function getLocalTimeLocation(lat,lon){
    
         const localTimeLocation=res.data.formatted.split(' ')[1].split(":")
     
-         return localTimeLocation[0] + ':' + localTimeLocation[1]
+        setLocalTime(localTimeLocation[0] + ':' + localTimeLocation[1])
     } catch (error) {
         console.log(error)
     }

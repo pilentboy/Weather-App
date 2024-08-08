@@ -25,16 +25,17 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
                 title='local time'
                 >
               
-                    {localTime ? localTime :       <Watch
-                        visible={true}
-                        height="20"
-                        width="20"
-                        radius="48"
-                        color="#9ca3af"
-                        ariaLabel="watch-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        /> }
+                    {localTime ? localTime : 
+                        <Watch
+                            visible={true}
+                            height="20"
+                            width="20"
+                            radius="48"
+                            color="#9ca3af"
+                            ariaLabel="watch-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            /> }
                 </span>
             </div>
 

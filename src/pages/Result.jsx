@@ -6,6 +6,7 @@ import WeatherCard from "../components/weatherCard";
 import getWeatherForecast from "../utils/getWeatherForecast";
 import ForecastSlider from "../components/Sliders/forecastSlider/forecastSlider";
 import { BiSolidArrowToBottom } from "react-icons/bi";
+import { RotatingLines } from "react-loader-spinner"; 
 
 
 const Result = () => {
@@ -15,15 +16,13 @@ const Result = () => {
     const [localTime,setLocalTime]=useState()
 	const [forecast,setForecast]=useState()
 	
-    async function setLocalTimeLocation(){
-        const res=await  getLocalTimeLocation(currentLocationWeather.state.location.lat,currentLocationWeather.state.location.lon)
-        setLocalTime(res)
-    }
-	
+  
 
     useEffect(()=>{
-	   setLocalTimeLocation()
-	   getWeatherForecast(currentLocationWeather.state.location.name,setForecast)
+        setLocalTime()
+        setForecast()
+        getLocalTimeLocation(currentLocationWeather.state.location.lat,currentLocationWeather.state.location.lon,setLocalTime)
+        getWeatherForecast(currentLocationWeather.state.location.name,setForecast)
         
     },[currentLocationWeather.state])
 
@@ -39,7 +38,21 @@ const Result = () => {
 
 		{/* forecast data */}
 		<div className="w-full h-fit pb-14  flex justify-center items-center ">
-			<ForecastSlider forecast={forecast}/>
+			{
+                forecast ? <ForecastSlider forecast={forecast}/> : 
+                    <RotatingLines
+                    visible={true}
+                    height="40"
+                    width="40"
+                    color="#9ca3af"
+                    strokeColor="#9ca3af"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    />
+            }
 		</div>
 		
         
