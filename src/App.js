@@ -10,15 +10,12 @@ import { BrowserRouter,Routes,Route, Navigate } from 'react-router-dom'
 
 function App() {
 
-
-
-
   return(
     <Container>
           <BrowserRouter>
-          <SettingsProvider>
+            <SettingsProvider>
 
-            <Routes>
+              <Routes>
                   <Route path='/' element={<Header/>}>
                     <Route  index element={<Home/>} />
                       <Route path='result' element={<ProtectedRoute/>} >
@@ -28,9 +25,9 @@ function App() {
 
                   <Route path="*" element={<Navigate to="/" />} />
 
-              </Routes>
+                </Routes>
 
-          </SettingsProvider>
+            </SettingsProvider>
           
           </BrowserRouter>
     </Container>
