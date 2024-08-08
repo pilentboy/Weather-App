@@ -34,7 +34,7 @@ const Result = () => {
         <div className="w-full h-screen md:max-h-[800px] flex  justify-center items-center relative ">
 
             <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>	
-			<BiSolidArrowToBottom className="text-[40px] text-yellow-500 absolute bottom-[5%] md:hidden lg:block"/>
+			<BiSolidArrowToBottom className="text-[40px] text-yellow-500 absolute bottom-[10%] md:bottom-[5%] md:hidden lg:block"/>
 		</div>	
 
 		{/* forecast data */}
