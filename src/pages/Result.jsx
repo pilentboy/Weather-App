@@ -54,7 +54,11 @@ const Result = () => {
                     />
             }
 		</div>
-		
+
+        {/* forecast chart */}
+        <div className="w-full h-screen ">
+
+        </div>
         
 		</>
 
