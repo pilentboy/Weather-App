@@ -7,6 +7,8 @@ import getWeatherForecast from "../utils/getWeatherForecast";
 import ForecastSlider from "../components/Sliders/forecastSlider/forecastSlider";
 import { BiSolidArrowToBottom } from "react-icons/bi";
 import { RotatingLines } from "react-loader-spinner"; 
+import {Chart as ChartJS } from 'chart.js/auto'
+import { Bar, Line } from "react-chartjs-2";
 
 
 const Result = () => {
@@ -15,17 +17,18 @@ const Result = () => {
     const currentLocationWeather =useLocation()
     const [localTime,setLocalTime]=useState()
 	const [forecast,setForecast]=useState()
+    const [forecastDate,setForecastDate]=useState()
 	
-  
+    const getDates=()=>{
+        
+    }
 
     useEffect(()=>{
-        setLocalTime()
         setForecast()
         getLocalTimeLocation(currentLocationWeather.state.location.lat,currentLocationWeather.state.location.lon,setLocalTime)
-        getWeatherForecast(currentLocationWeather.state.location.name,setForecast)
-        
+        getWeatherForecast(currentLocationWeather.state.location.name,setForecast,setForecastDate)
     },[currentLocationWeather.state])
-
+   
     return (
 		<>
 
@@ -37,7 +40,7 @@ const Result = () => {
 		</div>	
 
 		{/* forecast data */}
-		<div className="w-full h-fit pb-14  flex justify-center items-center ">
+		{/* <div className="w-full h-fit pb-14  flex justify-center items-center ">
 			{
                 forecast ? <ForecastSlider forecast={forecast}/> : 
                     <RotatingLines
@@ -53,11 +56,38 @@ const Result = () => {
                     wrapperClass=""
                     />
             }
-		</div>
+		</div> */}
 
         {/* forecast chart */}
-        <div className="w-full h-screen ">
 
+        <div className="md:w-3/4 md:h-1/2 mx-auto p-5 flex justify-center items-center ">
+
+			{
+                forecast ?  <Line
+                                data={{
+                                    labels:forecastDate,
+                                    datasets:[
+                                        {
+                                            label:"Forecast",
+                                            data:forecast
+                                        }
+                                    ]
+                                }} /> : 
+                    <RotatingLines
+                    visible={true}
+                    height="40"
+                    width="40"
+                    color="#9ca3af"
+                    strokeColor="#9ca3af"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    />
+            }
+	
+          
         </div>
         
 		</>

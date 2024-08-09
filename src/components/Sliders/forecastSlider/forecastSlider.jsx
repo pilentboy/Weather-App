@@ -13,6 +13,7 @@ const ForecastSlider = ({forecast}) => {
         if(forecast){
             let date= new Date(forecast[index].date);
             let dayName = days[date.getDay()];
+            console.log(date.getDay())
             return dayName.slice(0,3)
         }
     }
