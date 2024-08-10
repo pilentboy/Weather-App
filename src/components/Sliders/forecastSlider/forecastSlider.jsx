@@ -3,24 +3,25 @@ import {Scrollbar} from "swiper/modules";
 import 'swiper/css/effect-fade';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import { RotatingLines } from "react-loader-spinner"; 
 
 
 const ForecastSlider = ({forecast}) => {
 
-    
+    console.log(forecast)
     const getDayName= (index) => {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         if(forecast){
             let date= new Date(forecast[index].date);
             let dayName = days[date.getDay()];
-            console.log(date.getDay())
             return dayName.slice(0,3)
         }
     }
 
     return (
-        <div className="w-[95%] md:w-[80%] lg:w-[60%] h-48">
-            <Swiper
+        <div className="w-[95%] md:w-[80%] lg:w-[60%] h-48 flex justify-center items-center">
+            {
+                forecast ?   <Swiper
                 speed={500}
                 slidesPerView={3}
                 modules={[Scrollbar]}
@@ -54,7 +55,20 @@ const ForecastSlider = ({forecast}) => {
                 ))
                }
    
-            </Swiper>
+            </Swiper> : <RotatingLines
+                    visible={true}
+                    height="40"
+                    width="40"
+                    color="#9ca3af"
+                    strokeColor="#9ca3af"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    />
+            }
+          
         </div>
     );
 }

@@ -6,9 +6,8 @@ import WeatherCard from "../components/weatherCard";
 import getWeatherForecast from "../utils/getWeatherForecast";
 import ForecastSlider from "../components/Sliders/forecastSlider/forecastSlider";
 import { BiSolidArrowToBottom } from "react-icons/bi";
-import { RotatingLines } from "react-loader-spinner"; 
-import {Chart as ChartJS } from 'chart.js/auto'
-import { Bar, Line } from "react-chartjs-2";
+import ForecastChart from "../components/forecastChart";
+
 
 
 const Result = () => {
@@ -17,80 +16,36 @@ const Result = () => {
     const currentLocationWeather =useLocation()
     const [localTime,setLocalTime]=useState()
 	const [forecast,setForecast]=useState()
-    const [forecastDate,setForecastDate]=useState()
+ 
 	
-    const getDates=()=>{
-        
-    }
 
     useEffect(()=>{
         setForecast()
         getLocalTimeLocation(currentLocationWeather.state.location.lat,currentLocationWeather.state.location.lon,setLocalTime)
-        getWeatherForecast(currentLocationWeather.state.location.name,setForecast,setForecastDate)
+        getWeatherForecast(currentLocationWeather.state.location.name,setForecast)
     },[currentLocationWeather.state])
    
     return (
 		<>
 
 		{/* current weather  */}
-        <div className="w-full h-screen md:max-h-[800px] flex  justify-center items-center relative ">
+        <div className="w-full h-screen md:max-h-[800px]  flex  justify-center items-center relative ">
 
             <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>	
-			<BiSolidArrowToBottom className="text-[40px] text-yellow-500 absolute bottom-[10%] md:bottom-[5%] md:hidden lg:block"/>
+			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[10%] md:bottom-[5%] md:hidden lg:block"/>
 		</div>	
 
 		{/* forecast data */}
-		{/* <div className="w-full h-fit pb-14  flex justify-center items-center ">
-			{
-                forecast ? <ForecastSlider forecast={forecast}/> : 
-                    <RotatingLines
-                    visible={true}
-                    height="40"
-                    width="40"
-                    color="#9ca3af"
-                    strokeColor="#9ca3af"
-                    strokeWidth="5"
-                    animationDuration="0.75"
-                    ariaLabel="rotating-lines-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    />
-            }
-		</div> */}
+
+		<div className="w-full h-fit pb-6 px-2  flex flex-col justify-center items-center ">
+            <ForecastSlider forecast={forecast}/>
+            <ForecastChart forecastData={forecast}/>
+		</div>
 
         {/* forecast chart */}
 
-        <div className="md:w-3/4 md:h-1/2 mx-auto p-5 flex justify-center items-center ">
-
-			{
-                forecast ?  <Line
-                                data={{
-                                    labels:forecastDate,
-                                    datasets:[
-                                        {
-                                            label:"Forecast",
-                                            data:forecast
-                                        }
-                                    ]
-                                }} /> : 
-                    <RotatingLines
-                    visible={true}
-                    height="40"
-                    width="40"
-                    color="#9ca3af"
-                    strokeColor="#9ca3af"
-                    strokeWidth="5"
-                    animationDuration="0.75"
-                    ariaLabel="rotating-lines-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    />
-            }
-	
-          
-        </div>
         
-		</>
+	</>
 
     )
 
