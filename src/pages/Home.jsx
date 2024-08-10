@@ -29,6 +29,7 @@ const Home = () => {
         try {
             const res=await axios(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${location}`)
             addSearchLocationToHistory(location.trim(),setLocationHistory)
+            
             navigate("/result", { state:res.data });
         } catch (error) {
             toast.dismiss('isSearching')

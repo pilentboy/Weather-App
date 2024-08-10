@@ -18,7 +18,7 @@ const Result = () => {
 	const [forecast,setForecast]=useState()
  
 	
-
+    console.log(currentLocationWeather.state)
     useEffect(()=>{
         setForecast()
         getLocalTimeLocation(currentLocationWeather.state.location.lat,currentLocationWeather.state.location.lon,setLocalTime)
@@ -31,18 +31,24 @@ const Result = () => {
 		{/* current weather  */}
         <div className="w-full h-screen md:max-h-[800px]  flex  justify-center items-center relative ">
 
-            <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>	
+            <div className="flex items-center justify-center">
+            <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>
+
+            {/* <span>
+                {forecast && forecast[0]['astro']['sunrise']}    
+                {forecast && forecast[0]['astro']['sunset']}    
+            </span>	 */}
+
+            </div>
 			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[10%] md:bottom-[5%] md:hidden lg:block"/>
 		</div>	
 
-		{/* forecast data */}
-
+		{/* forecast  */}
 		<div className="w-full h-fit pb-6 px-2  flex flex-col justify-center items-center ">
             <ForecastSlider forecast={forecast}/>
             <ForecastChart forecastData={forecast}/>
 		</div>
 
-        {/* forecast chart */}
 
         
 	</>
