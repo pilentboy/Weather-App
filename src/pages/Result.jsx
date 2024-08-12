@@ -44,7 +44,7 @@ const Result = () => {
 		</div>	
 
 		{/* forecast chart & slider */}
-		<div className="w-full h-fit pb-6 px-2  flex flex-col justify-center items-center ">
+		<div className="w-full h-fit pb-6 px-1 flex flex-col justify-center items-center ">
             <ForecastSlider forecast={forecast}/>
             <ForecastChart forecast={forecast}/>
 		</div>

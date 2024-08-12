@@ -1,5 +1,5 @@
 import {Chart as ChartJS } from 'chart.js/auto'
-import { Bar, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { RotatingLines } from "react-loader-spinner"; 
 import { useEffect, useState } from 'react';
 
@@ -22,7 +22,7 @@ const ForecastChart = ({forecast}) => {
     
     return (
 
-        <div className="md:w-3/5 md:h-1/2 mx-auto p-5 mt-10 flex justify-center items-center ">
+        <div className="md:w-3/5 md:h-1/2 py-5 mt-10 flex justify-center items-center ">
 
         {
             forecast ?  <Line
