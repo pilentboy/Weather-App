@@ -8,7 +8,7 @@ const WeatherCard = ({currentWeather,forecast,locationInfo,localTime}) => {
     
 
     return (
-        <div className=" w-80 h-96 relative rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
+        <div className="w-80 h-96  md:w-[550px] md:h-[320px] relative rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
 
             {/* local time & location name */}
             <div className={` justify-between items-center flex`}>
@@ -107,7 +107,7 @@ const WeatherCard = ({currentWeather,forecast,locationInfo,localTime}) => {
 
             {/* sunset & sunrise */}
 
-            <div className="absolute left-0 -bottom-[12%] bg-slate-950 py-2  flex justify-evenly w-full items-center">
+            <div className="absolute left-0 -bottom-[20%] border-b border-gray-700 py-2  flex justify-evenly w-full items-center">
 
 
                     <div className="flex justify-center items-center"  title="sunrise">
