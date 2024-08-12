@@ -31,20 +31,16 @@ const Result = () => {
 		{/* current weather  */}
         <div className="w-full h-screen md:max-h-[800px] flex justify-center items-center relative">
 
-            <div className="flex items-center justify-center">
-            <WeatherCard currentWeather={currentLocationWeather.state.current} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>
+        
+            <WeatherCard currentWeather={currentLocationWeather.state.current} forecast={forecast} locationInfo={currentLocationWeather.state.location} localTime={localTime}/>
 
-            {/* <span>
-                {forecast && forecast[0]['astro']['sunrise']}    
-                {forecast && forecast[0]['astro']['sunset']}    
-            </span>	 */}
 
-            </div>
-			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[10%] md:bottom-[5%] md:hidden lg:block"/>
+        
+			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[10%] md:bottom-[3%] md:hidden lg:block lg:text-[30px]"/>
 		</div>	
 
 		{/* forecast chart & slider */}
-		<div className="w-full h-fit pb-6 px-1 flex flex-col justify-center items-center ">
+		<div className="w-full h-fit pb-6 px-1 mt-0 lg:mt-10 flex flex-col justify-center items-center ">
             <ForecastSlider forecast={forecast}/>
             <ForecastChart forecast={forecast}/>
 		</div>

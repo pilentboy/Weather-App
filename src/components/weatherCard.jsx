@@ -1,12 +1,14 @@
 import { RiWindyFill } from "react-icons/ri";
 import { WiHumidity } from "react-icons/wi";
 import { Watch } from "react-loader-spinner";
+import { FiSunrise, FiSunset} from "react-icons/fi";
+import { BiSolidArrowToBottom } from "react-icons/bi";
 
-const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
+const WeatherCard = ({currentWeather,forecast,locationInfo,localTime}) => {
     
 
     return (
-        <div className=" w-80 h-96 rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
+        <div className=" w-80 h-96 relative rounded-md flex flex-col justify-between p-5 border border-gray-700 bg-sky-950  ">
 
             {/* local time & location name */}
             <div className={` justify-between items-center flex`}>
@@ -101,6 +103,31 @@ const WeatherCard = ({currentWeather,locationInfo,localTime}) => {
 
          
             </div>
+
+
+            {/* sunset & sunrise */}
+
+            <div className="absolute left-0 -bottom-[12%] bg-slate-950 py-2  flex justify-evenly w-full items-center">
+
+
+                    <div className="flex justify-center items-center"  title="sunrise">
+                            <FiSunrise className="text-gray-400 text-xl mr-1"/>
+                            <span className="text-gray-300 text-sm">
+                                {forecast && forecast[0]['astro']['sunrise']}   
+                            </span> 
+                    </div>
+
+                    <div className=" flex justify-center items-center" title="sunset">
+                        <FiSunset className="text-gray-400 text-xl mr-1"/>
+                        <span className="text-gray-300 text-sm" >
+                            {forecast && forecast[0]['astro']['sunset']}   
+                        </span> 
+                    </div>
+
+            </div>
+
+                    
+  
 
         </div>
     );
