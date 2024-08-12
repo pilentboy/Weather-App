@@ -2,7 +2,6 @@ import { RiWindyFill } from "react-icons/ri";
 import { WiHumidity } from "react-icons/wi";
 import { Watch } from "react-loader-spinner";
 import { FiSunrise, FiSunset} from "react-icons/fi";
-import { BiSolidArrowToBottom } from "react-icons/bi";
 
 const WeatherCard = ({currentWeather,forecast,locationInfo,localTime}) => {
     
