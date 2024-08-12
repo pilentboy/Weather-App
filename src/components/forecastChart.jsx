@@ -3,29 +3,29 @@ import { Bar, Line } from "react-chartjs-2";
 import { RotatingLines } from "react-loader-spinner"; 
 import { useEffect, useState } from 'react';
 
-const ForecastChart = ({forecastData}) => {
+const ForecastChart = ({forecast}) => {
 
     const [forecastDate,setForecastDate]=useState()
     const [forecastTemp,setForecastTemp]=useState()
 
-    console.log(forecastData)
+    console.log(forecast)
     
 
         useEffect(()=>{
             
-            if(forecastData){
-                setForecastDate(forecastData.map(date => Object.values(date)[0]))
-                setForecastTemp(forecastData.map(data => Object.values(data)[2]['maxtemp_c']))
+            if(forecast){
+                setForecastDate(forecast.map(date => Object.values(date)[0]))
+                setForecastTemp(forecast.map(data => Object.values(data)[2]['maxtemp_c']))
             }
 
-        },[forecastData])
+        },[forecast])
     
     return (
 
         <div className="md:w-3/5 md:h-1/2 mx-auto p-5 mt-10 flex justify-center items-center ">
 
         {
-            forecastData ?  <Line
+            forecast ?  <Line
                             data={{
                                 labels:forecastDate,
                                 datasets:[
