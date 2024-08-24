@@ -5,7 +5,7 @@ import axios from 'axios'
 async function getWeatherForecast(locationName,setforecast){
 	
     try{
-        const res=await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=46bcde85a7f74ae2938205451241008&q=${locationName}&days=7`)
+        const res=await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=4204a62225644698be3225334242408&q=${locationName}&days=7`)
         setforecast(res['data']['forecast']['forecastday'])
     }
     catch(e){
