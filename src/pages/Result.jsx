@@ -36,7 +36,7 @@ const Result = () => {
 
 
         
-			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[10%] md:bottom-[3%] md:hidden lg:block lg:text-[30px]"/>
+			<BiSolidArrowToBottom className="text-[40px]  text-yellow-500 absolute bottom-[5%] md:bottom-[3%] md:hidden lg:block lg:text-[30px]"/>
 		</div>	
 
 		{/* forecast chart & slider */}
