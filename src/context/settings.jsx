@@ -4,7 +4,7 @@ const Settings=createContext()
 
 const SettingsProvider=({children})=>{
 
-    const weatherAPIKey='c83b3621f8ee4abba5e00104240512'
+    const weatherAPIKey='2e958c1c97b14af999e124649242812'
         
     const [histoyModal,setHistoryModal]=useState(false)
 
